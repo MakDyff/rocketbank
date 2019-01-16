@@ -5,5 +5,6 @@ package navigations
  */
 enum class NavigationType {
     None,
-    Images
+    Images,
+    Generate
 }

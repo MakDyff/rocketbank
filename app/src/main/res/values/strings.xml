@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">rocketbank</string>
+    <string name="app_name">Rocket bank</string>
+    <string name="size">Размер</string>
+    <string name="default_size">512</string>
+    <string name="generate">Генерация</string>
+    <string name="speed">Скорость выполнения</string>
 </resources>

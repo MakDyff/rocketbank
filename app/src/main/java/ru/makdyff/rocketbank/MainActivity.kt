@@ -7,6 +7,9 @@ class MainActivity : FragmentActivityBase() {
 
     private val navigation = MainNavigation(this)
 
+    var hSize = 512
+    var wSize = 512
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -19,8 +22,8 @@ class MainActivity : FragmentActivityBase() {
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
-
         navigation.backClick()
     }
+
+
 }
