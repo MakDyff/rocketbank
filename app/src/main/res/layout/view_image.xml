@@ -5,12 +5,16 @@
               android:orientation="vertical"
               android:padding="16dp">
     <Spinner android:layout_width="match_parent" android:layout_height="wrap_content"
-             android:layout_weight="0"/>
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1" android:background="@android:color/black"
-    android:padding="1dp" android:gravity="center">
+             android:layout_weight="0" android:entries="@array/methods" android:id="@+id/view_image_methods"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1"
+                  android:background="@android:color/black"
+                  android:padding="1dp" android:gravity="center">
         <ImageView android:layout_width="match_parent" android:layout_height="match_parent"
                    android:id="@+id/view_image_id" android:background="@android:color/white"/>
     </LinearLayout>
-    <SeekBar android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="0"/>
+    <SeekBar android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="0"
+             android:max="1000"
+             android:progress="0"
+    android:id="@+id/view_image_bar"/>
 
 </LinearLayout>

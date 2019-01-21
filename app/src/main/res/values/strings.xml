@@ -4,4 +4,8 @@
     <string name="default_size">512</string>
     <string name="generate">Генерация</string>
     <string name="speed">Скорость выполнения</string>
+    <string-array name="methods">
+        <item>По горизонтали</item>
+        <item>По вертикали</item>
+    </string-array>
 </resources>
