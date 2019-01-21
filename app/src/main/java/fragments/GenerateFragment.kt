@@ -23,16 +23,32 @@ class GenerateFragment : FragmentBase<NavigationType, MainNavigation>() {
 
             val b = view.findViewById<Button>(R.id.fragment_generate_button)
             b.setOnClickListener {
+                progressShow()
+
+                var hSize = hSizeEdit.hint.toString().toInt()
+                var wSize = wSizeEdit.hint.toString().toInt()
+
                 if(hSizeEdit.text.isNotEmpty())
-                    navigation.activity.hSize = hSizeEdit.text.toString().toInt()
+                    hSize = hSizeEdit.text.toString().toInt()
 
                 if( wSizeEdit.text.isNotEmpty())
-                    navigation.activity.wSize = wSizeEdit.text.toString().toInt()
+                    wSize = wSizeEdit.text.toString().toInt()
 
-                navigation.nextClick(NavigationType.Images)
+                gen(hSize, wSize)
             }
         }
 
         return view
+    }
+
+    /*
+    Генерация массива с рандомными числами 0 1
+     */
+    private fun gen(hSize: Int, wSize: Int) {
+        pool.submit {
+            navigation.activity.mass = Array(hSize) { Array(wSize) { i ->  (0..1).random()} }
+            progressDismiss()
+            navigation.nextClick(NavigationType.Images)
+        }
     }
 }

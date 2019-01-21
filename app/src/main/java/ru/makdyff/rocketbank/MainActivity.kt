@@ -7,8 +7,7 @@ class MainActivity : FragmentActivityBase() {
 
     private val navigation = MainNavigation(this)
 
-    var hSize = 512
-    var wSize = 512
+    var mass = Array(0){Array(0) { i -> i} }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,5 +24,9 @@ class MainActivity : FragmentActivityBase() {
         navigation.backClick()
     }
 
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+
+    }
 
 }
