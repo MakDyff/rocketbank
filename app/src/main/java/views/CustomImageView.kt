@@ -8,6 +8,7 @@ import ru.makdyff.rocketbank.R
 import android.graphics.*
 import android.graphics.Bitmap
 import android.widget.*
+import models.RombModel
 import java.util.concurrent.Future
 
 
@@ -67,6 +68,7 @@ class CustomImageView : ViewBase {
             when(method) {
                 0 -> horz(_model.mass[x][y], x, y)
                 1 -> vert(_model.mass[x][y], x, y)
+                2 -> romb(_model.mass[x][y], x, y)
                 else -> {
 
                 }
@@ -121,8 +123,29 @@ class CustomImageView : ViewBase {
     /*
     Ромб
      */
-    private fun tmp1() {
+    private fun romb(v: Int, xC: Int, yC: Int) {
+        val check = arrayListOf(RombModel(xC,yC))
 
+        while (check.size != 0) {
+            val vv = check[0]
+            if (vv.x >= 0
+                && _model.mass.size > vv.x
+                && vv.y >= 0
+                && _model.mass[vv.x].size > vv.y
+                && _model.mass[vv.x][vv.y] == v
+            ) {
+                _model.mass[vv.x][vv.y] = 2
+                timeChange(vv.x, vv.y)
+
+                check.addAll(arrayOf(
+                    RombModel(vv.x-1,vv.y),
+                    RombModel(vv.x+1,vv.y),
+                    RombModel(vv.x,vv.y-1),
+                    RombModel(vv.x,vv.y+1)))
+            }
+
+            check.remove(vv)
+        }
     }
 
     private fun timeChange(x: Int, y: Int) {
